@@ -52,5 +52,6 @@
 @optional
 - (void)AwesomeMenuWillExpand:(AwesomeMenu *)menu;
 - (void)AwesomeMenuDidShrink:(AwesomeMenu *)menu;
+- (void)AwesomeMenuWillShrink:(AwesomeMenu *)menu;
 - (void)AwesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx;
 @end

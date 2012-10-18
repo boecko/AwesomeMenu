@@ -375,7 +375,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     item.center = item.startPoint;
     _flag --;
     if ([_delegate respondsToSelector:@selector(AwesomeMenuWillShrink:)]) {
-        [_delegate AwesomeMenuDidShrink:self];
+        [_delegate AwesomeMenuWillShrink:self];
     }
 }
 
