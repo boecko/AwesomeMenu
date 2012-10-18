@@ -371,11 +371,19 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     animationgroup.duration = self.animationDuration;
     animationgroup.fillMode = kCAFillModeForwards;
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    animationgroup.delegate = self;
     [item.layer addAnimation:animationgroup forKey:@"Close"];
     item.center = item.startPoint;
     _flag --;
     if ([_delegate respondsToSelector:@selector(AwesomeMenuWillShrink:)]) {
         [_delegate AwesomeMenuWillShrink:self];
+    }
+}
+
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+    if ([_delegate respondsToSelector:@selector(AwesomeMenuDidShrink:)]) {
+        [_delegate AwesomeMenuDidShrink:self];
     }
 }
 
